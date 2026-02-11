@@ -13,12 +13,20 @@ except ImportError:
 import requests
 import psycopg2
 
+env_path = os.path.join(os.path.dirname(__file__), ".env")
+if os.path.exists(env_path):
+    with open(env_path) as f:
+        for line in f:
+            if "=" in line:
+                key, value = line.strip().split("=", 1)
+                os.environ[key] = value
+
 DB_CONFIG = {
-    "host": "database-for-projects.cx2ai206wfec.eu-north-1.rds.amazonaws.com",
-    "database": "postgres",
-    "user": "sandalisingh",
-    "password": "password",
-    "port": 5432
+    "host": os.getenv("RDS_HOST"),
+    "database": os.getenv("RDS_DB"),
+    "user": os.getenv("RDS_USER"),
+    "password": os.getenv("RDS_PASSWORD"),
+    "port": int(os.getenv("RDS_PORT"))
 }
 
 def get_db_connection():
@@ -29,8 +37,8 @@ CORS(app)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-MODEL_URL = "https://sandali-project.s3.eu-north-1.amazonaws.com/flower_model.tflite"
-CLASS_URL = "https://sandali-project.s3.eu-north-1.amazonaws.com/class_indices.pkl"
+MODEL_URL = os.getenv("MODEL_URL")
+CLASS_URL = os.getenv("CLASS_URL")
 
 MODEL_PATH = os.path.join(BASE_DIR, "flower_model.tflite")
 CLASS_PATH = os.path.join(BASE_DIR, "class_indices.pkl")

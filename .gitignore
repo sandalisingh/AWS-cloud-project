@@ -8,3 +8,4 @@ train/dataset
 *.tflite
 *.pkl
 *.h5
+*.env
