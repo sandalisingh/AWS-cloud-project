@@ -1,0 +1,12 @@
+.git
+.vscode
+train
+train/**
+*.jpg
+*.jpeg
+*.png
+.DS_Store
+*.md
+*.tflite
+*.pkl
+*.h5

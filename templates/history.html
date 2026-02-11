@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prediction History</title>
+  <style>
+    body {
+      font-family: Segoe UI, sans-serif;
+      background: #f6f8fa;
+      padding: 40px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px;
+      text-align: center;
+    }
+    th {
+      background: #42b883;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background: #f2f2f2;
+    }
+    a {
+      display: inline-block;
+      margin-bottom: 20px;
+      text-decoration: none;
+      color: #42b883;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<a href="/">⬅ Back to Prediction</a>
+
+<h2>🌼 Recent Predictions</h2>
+
+<table>
+  <tr>
+    <th>Flower</th>
+    <th>Confidence</th>
+    <th>Time</th>
+  </tr>
+
+  {% for row in rows %}
+  <tr>
+    <td>{{ row[0] }}</td>
+    <td>{{ "%.2f"|format(row[1] * 100) }}%</td>
+    <td>{{ row[2] }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+</body>
+</html>

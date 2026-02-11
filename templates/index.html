@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flower Prediction 🌸</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="app-wrapper">
+  <div class="card">
+    <h1>Flower Prediction</h1>
+    <p class="subtitle">Upload a flower image and let AI identify it</p>
+
+    <label class="upload-box">
+      <input type="file" accept="image/*" id="imageInput" hidden />
+      <span>📷 Choose Image</span>
+    </label>
+
+    <div id="preview" class="preview"></div>
+
+    <button onclick="sendPrediction()">Predict</button>
+
+    <div class="result-box">
+      <p id="result"></p>
+      <p id="confidence"></p>
+    </div>
+
+    <p class="error" id="error"></p>
+  </div>
+</div>
+
+<br>
+<a href="/history">
+  <button style="margin-top:10px;background:#35495e">
+    📊 View History
+  </button>
+</a>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

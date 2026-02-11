@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #a8edea, #fed6e3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-wrapper {
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  width: 360px;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.upload-box {
+  display: inline-block;
+  padding: 12px 20px;
+  border: 2px dashed #42b883;
+  border-radius: 10px;
+  color: #42b883;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-bottom: 15px;
+}
+
+.upload-box:hover {
+  background: #f0fdfa;
+}
+
+.preview img {
+  margin-top: 15px;
+  width: 100%;
+  border-radius: 12px;
+  animation: fadeIn 0.4s ease-in;
+}
+
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: #42b883;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #369870;
+}
+
+.result-box {
+  margin-top: 20px;
+}
+
+.result-box p {
+  margin: 6px 0;
+  font-weight: 600;
+}
+
+#result {
+  color: #333;
+}
+
+#confidence {
+  color: #555;
+  font-size: 14px;
+}
+
+.error {
+  color: #d9534f;
+  margin-top: 10px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
