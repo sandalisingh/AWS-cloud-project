@@ -1,8 +1,8 @@
-# 🚀 AWS Cloud ML Web Application
+# AWS Cloud ML Web Application
 
 A cloud-based Machine Learning web application deployed on **AWS EC2**, integrated with multiple AWS services.
 
-## 🧱 Architecture
+## Architecture
 
 User → EC2 (Flask App with Jinja) →  
 • Fetch ML Model from S3  
@@ -11,7 +11,7 @@ User → EC2 (Flask App with Jinja) →
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - Python 3.x
 - Flask
@@ -21,7 +21,7 @@ User → EC2 (Flask App with Jinja) →
 
 ---
 
-# 📋 Prerequisites
+# Prerequisites
 
 - AWS Account
 - EC2 Instance (Amazon Linux)
@@ -33,9 +33,9 @@ User → EC2 (Flask App with Jinja) →
 
 ---
 
-# 🚀 Deployment Steps
+# Deployment Steps
 
-## 1️⃣ Connect to EC2
+## 1. Connect to EC2
 
 ```bash
 ssh -i <CERTIFICATE.pem> ec2-user@<PUBLIC-IP>
@@ -43,7 +43,7 @@ ssh -i <CERTIFICATE.pem> ec2-user@<PUBLIC-IP>
 
 ---
 
-## 2️⃣ Copy Project to EC2
+## 2. Copy Project to EC2
 
 ```bash
 rsync -avz \
@@ -55,7 +55,7 @@ rsync -avz \
 
 ---
 
-## 3️⃣ Install Dependencies
+## 3. Install Dependencies
 
 ```bash
 pip3 install -r requirements.txt
@@ -63,7 +63,7 @@ pip3 install -r requirements.txt
 
 ---
 
-## 4️⃣ Configure Environment Variables
+## 4. Configure Environment Variables
 
 Create a `.env` file:
 
@@ -80,7 +80,7 @@ RDS_PORT=5432
 
 ---
 
-## 5️⃣ Run Flask (Jinja) Application
+## 5. Run Flask (Jinja) Application
 
 ```bash
 python3 app.py
@@ -96,7 +96,7 @@ http://<EC2-PUBLIC-IP>:5000
 
 ---
 
-# 🗄 Connecting to RDS (PostgreSQL)
+# Connecting to RDS (PostgreSQL)
 
 From EC2:
 
