@@ -16,24 +16,19 @@ User → EC2 (Flask App with Jinja) →
 - Python 3.x
 - Flask
 - Jinja2
-- boto3
 - PostgreSQL
-- AWS EC2
-- AWS S3
-- AWS RDS
-- AWS Lambda
+- AWS 
 
 ---
 
 # 📋 Prerequisites
 
 - AWS Account
-- EC2 Instance (Amazon Linux / Ubuntu)
+- EC2 Instance (Amazon Linux)
 - RDS PostgreSQL Instance
 - S3 Bucket (with ML model stored)
 - IAM Role attached to EC2 with:
   - S3 Read Access
-  - Lambda Invoke Permission
 - Python 3 installed
 
 ---
@@ -66,14 +61,6 @@ rsync -avz \
 pip3 install -r requirements.txt
 ```
 
-### (Recommended) Use Virtual Environment
-
-```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
-
 ---
 
 ## 4️⃣ Configure Environment Variables
@@ -81,17 +68,14 @@ pip install -r requirements.txt
 Create a `.env` file:
 
 ```
-S3_BUCKET_NAME=your-bucket-name
-MODEL_FILE_KEY=model.pkl
+MODEL_URL=model.pkl
+CLASS_URL=class_indices.pkl
 
 RDS_HOST=your-rds-endpoint
 RDS_DB=your-database
 RDS_USER=your-username
 RDS_PASSWORD=your-password
 RDS_PORT=5432
-
-AWS_REGION=ap-south-1
-LAMBDA_FUNCTION_NAME=your-lambda-name
 ```
 
 ---
@@ -100,12 +84,6 @@ LAMBDA_FUNCTION_NAME=your-lambda-name
 
 ```bash
 python3 app.py
-```
-
-For production-style execution:
-
-```bash
-flask run --host=0.0.0.0 --port=5000
 ```
 
 Access the application at:
@@ -130,19 +108,3 @@ psql -h <DATABASE-ENDPOINT> \
 ```
 
 ---
-
-# 📁 Project Structure
-
-```
-.
-├── app.py
-├── requirements.txt
-├── templates/
-│   └── index.html
-├── static/
-├── utils/
-│   └── model_loader.py
-├── lambda/
-│   └── lambda_function.py
-└── README.md
-```
